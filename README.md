@@ -38,7 +38,10 @@ Personalized Health [[WEBSITE]](https://horus-ai.fbk.eu/fuskg/) [[REPO]](https:/
 - The Multimodal Description of Social Concepts Ontology (MUSCO): [[REPO]](https://github.com/delfimpandiani/musco) [[DIAGRAMS]](/diagrams/applications_and_alignments/alignments/MUSCO/) [[ALIGNED ONTOLOGY]](/ontology/alignments/musco_alignment.ttl)
 - The Ontology for Multimodal Knowledge Graphs for Data Spaces: [[DIAGRAMS]](/diagrams/applications_and_alignments/alignments/MMKG-Dataspaces/) [[ALIGNED ONTOLOGY]](ontology/alignments/dataspaces_alignment.ttl)
 - The Polifonia Ontology Network (PON) - CoMeta: [[REPO]](https://github.com/polifonia-project/cometa-ontology/) [[DIAGRAMS]](/diagrams/applications_and_alignments/alignments/Cometa/) [[ALIGNED ONTOLOGY]](https://github.com/IDA-FBK/MultiModalPattern/blob/general-update-00/ontology/alignments/cometa_alignment.ttl)
-  
+
+### Notes
+Opening alignments files in Protégé will ask to import the [Multi-Modal ODP](https://github.com/IDA-FBK/MultiModalPattern/blob/main/ontology/multi-modal_odp/multi-modal_odp.ttl) file if not found.
+
 [^1]: for further details, refer to Sections 3 and 4 of the paper.
 
 ## Authors
