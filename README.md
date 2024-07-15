@@ -26,7 +26,7 @@ questions (CQs):
 3. The pattern should represent modalities at the highest level of abstraction, therefore
 ensuring a separation of concerns between the specific downstream applications.
 supported and the content of the pattern.
-4. The pattern should be domain agnostic, task-independent and easy to use
+4. The pattern should be domain agnostic, task-independent and easy to use.
 5. The pattern should promote modular development and be extensible, therefore allowing users to define new modalities and express relationships between them.
 
 ## Multi-Modal ODP Applications
