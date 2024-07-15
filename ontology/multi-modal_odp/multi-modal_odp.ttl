@@ -1,0 +1,283 @@
+@prefix : <http://www.semanticweb.org/MM/ontology/2023/1/mm#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/MM/ontology/2023/1/mm#> .
+
+<http://www.semanticweb.org/MM/ontology/2023/1/mm> rdf:type owl:Ontology ;
+                                                    owl:imports <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl> ,
+                                                                <http://www.w3.org/2004/02/skos/core> ;
+                                                    <http://purl.org/dc/terms/creator> "Gianluca Apriceno" ,
+                                                                                       "Jacopo de Berardinis" ,
+                                                                                       "Mauro Dragoni" ,
+                                                                                       "Tania Bailoni" ,
+                                                                                       "Valentina Tamma" ;
+                                                    <http://purl.org/dc/terms/license> "https://creativecommons.org/licenses/by-nc-sa/4.0/" ;
+                                                    <http://purl.org/dc/terms/rights> "CreativeCommons 4.0 NonCommercial-ShareAlike <https://creativecommons.org/licenses/by-nc-sa/4.0/>" ;
+                                                    <http://purl.org/dc/terms/title> "Multi-Modal Ontology Design Pattern" ;
+                                                    <http://purl.org/vocab/vann/preferredNamespacePrefix> "mm" ;
+                                                    <http://purl.org/vocab/vann/preferredNamespaceUri> "http://www.semanticweb.org/MM/ontology/2023/1/mm#" ;
+                                                    rdfs:seeAlso "https://github.com/IDA-FBK/MultiModalPattern" ;
+                                                    owl:versionInfo 1.0 .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/terms/license
+<http://purl.org/dc/terms/license> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/rights
+<http://purl.org/dc/terms/rights> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/vocab/vann/preferredNamespacePrefix
+<http://purl.org/vocab/vann/preferredNamespacePrefix> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/vocab/vann/preferredNamespaceUri
+<http://purl.org/vocab/vann/preferredNamespaceUri> rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/MM/ontology/2023/1/mm#hasModalDescriptor
+:hasModalDescriptor rdf:type owl:ObjectProperty ;
+                    owl:inverseOf :refersToMultiModalEntity ;
+                    rdfs:domain :Multi-ModalEntity ;
+                    rdfs:range :ModalDescriptor ;
+                    rdfs:comment "Property used to connect a Multi-ModalEntity with its corresponding ModalDescriptor(s)."@en ;
+                    rdfs:label "ha descrittore modale"@it ,
+                               "has modal descriptor" .
+
+
+###  http://www.semanticweb.org/MM/ontology/2023/1/mm#hasModalitySpecification
+:hasModalitySpecification rdf:type owl:ObjectProperty ;
+                          owl:inverseOf :isUsedByModalDescriptor ;
+                          rdfs:domain :ModalDescriptor ;
+                          rdfs:range :Modality ;
+                          rdfs:label "ha specifica modalità"@it ,
+                                     "has modality specification"@en .
+
+
+###  http://www.semanticweb.org/MM/ontology/2023/1/mm#hasPart
+:hasPart rdf:type owl:ObjectProperty ;
+         owl:inverseOf :isPartOf ;
+         rdfs:domain :Modality ;
+         rdfs:range :Modality ;
+         rdfs:comment "Parthood relation used to model complex modalities in terms of atomic ones, where one modality embeds others." ;
+         rdfs:isDefinedBy <http://www.ontologydesignpatterns.org/cp/owl/partof.owl> ;
+         rdfs:label "ha parte"@it ,
+                    "has part"@en .
+
+
+###  http://www.semanticweb.org/MM/ontology/2023/1/mm#isPartOf
+:isPartOf rdf:type owl:ObjectProperty ;
+          rdfs:domain :Modality ;
+          rdfs:range :Modality ;
+          rdfs:comment "Relation used to denote that an atomic modality is part of complex one(s)." ;
+          rdfs:isDefinedBy <http://www.ontologydesignpatterns.org/cp/owl/partof.owl> ;
+          rdfs:label "e' parte di"@it ,
+                     "is part of"@en .
+
+
+###  http://www.semanticweb.org/MM/ontology/2023/1/mm#isUsedByModalDescriptor
+:isUsedByModalDescriptor rdf:type owl:ObjectProperty ;
+                         rdfs:domain :Modality ;
+                         rdfs:range :ModalDescriptor ;
+                         rdfs:comment "Inverse property of hasModalitySpecification" ;
+                         rdfs:label "e' usata dal descrittore modale"@it ,
+                                    "is used by modal descriptor"@en .
+
+
+###  http://www.semanticweb.org/MM/ontology/2023/1/mm#refersToMultiModalEntity
+:refersToMultiModalEntity rdf:type owl:ObjectProperty ;
+                          rdfs:domain :ModalDescriptor ;
+                          rdfs:range :Multi-ModalEntity ;
+                          rdfs:comment "Inverse property of  hasModalDescriptor" ;
+                          rdfs:label "refers to multi-modal entity"@en ,
+                                     "si riferisce all'entità multi-modale"@it .
+
+
+###  http://www.w3.org/2004/02/skos/core#broadMatch
+<http://www.w3.org/2004/02/skos/core#broadMatch> rdfs:domain <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#InformationObject> ;
+                                                 rdfs:range :Multi-ModalEntity .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.semanticweb.org/MM/ontology/2023/1/mm#fps
+:fps rdf:type owl:DatatypeProperty ;
+     rdfs:domain :VideoModality ;
+     rdfs:range xsd:float ;
+     rdfs:comment "Frame per second of a Video."@en ;
+     rdfs:label "Frame al secondo"@it ,
+                "Frame per second"@en .
+
+
+###  http://www.semanticweb.org/MM/ontology/2023/1/mm#hasPathInArtifact
+:hasPathInArtifact rdf:type owl:DatatypeProperty ;
+                   rdfs:domain :ModalDescriptor ;
+                   rdfs:range xsd:string ;
+                   rdfs:comment "Path inside an artifact (e.g., an archive)."@en ;
+                   rdfs:label "Path inside artifact"@en ,
+                              "Percorso dentro artefatto"@it .
+
+
+###  http://www.semanticweb.org/MM/ontology/2023/1/mm#height
+:height rdf:type owl:DatatypeProperty ;
+        rdfs:domain [ rdf:type owl:Class ;
+                      owl:unionOf ( :ImageModality
+                                    :VideoModality
+                                  )
+                    ] ;
+        rdfs:range xsd:int ;
+        rdfs:comment "Height of an image or video (related to resolution)."@en ;
+        rdfs:label "altezza"@it ,
+                   "height"@en .
+
+
+###  http://www.semanticweb.org/MM/ontology/2023/1/mm#resourceURL
+:resourceURL rdf:type owl:DatatypeProperty ;
+             rdfs:domain :ModalDescriptor ;
+             rdfs:range xsd:anyURI ;
+             rdfs:comment "URL pointing to a resource."@en ;
+             rdfs:label "URL resource"@en ,
+                        "URL risorsa"@it .
+
+
+###  http://www.semanticweb.org/MM/ontology/2023/1/mm#width
+:width rdf:type owl:DatatypeProperty ;
+       rdfs:domain [ rdf:type owl:Class ;
+                     owl:unionOf ( :ImageModality
+                                   :VideoModality
+                                 )
+                   ] ;
+       rdfs:range xsd:int ;
+       rdfs:comment "Width of an image or video (related to resolution)."@en ;
+       rdfs:label "larghezza"@it ,
+                  "width"@en .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/MM/ontology/2023/1/mm#AudioModality
+:AudioModality rdf:type owl:Class ;
+               rdfs:subClassOf :Modality ;
+               rdfs:comment "Concept denoting Audio modality."@en ;
+               rdfs:label "Audio modality"@en ,
+                          "Modalità audio"@it .
+
+
+###  http://www.semanticweb.org/MM/ontology/2023/1/mm#DataStreamModality
+:DataStreamModality rdf:type owl:Class ;
+                    rdfs:subClassOf :Modality ;
+                    rdfs:comment "Concept denoting Data Stream modality."@en ;
+                    rdfs:label "Data stream modality"@en ,
+                               "Modalità stream dati"@it .
+
+
+###  http://www.semanticweb.org/MM/ontology/2023/1/mm#ImageModality
+:ImageModality rdf:type owl:Class ;
+               rdfs:subClassOf :Modality ;
+               rdfs:comment "Concept denoting Image modality."@en ;
+               rdfs:label "Image modality"@en ,
+                          "Modalità immagine"@it .
+
+
+###  http://www.semanticweb.org/MM/ontology/2023/1/mm#ModalDescriptor
+:ModalDescriptor rdf:type owl:Class ;
+                 rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                   owl:onProperty :refersToMultiModalEntity ;
+                                   owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                   owl:onClass :Multi-ModalEntity
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :hasModalitySpecification ;
+                                   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                   owl:onClass :Modality
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty <http://www.w3.org/2004/02/skos/core#broader> ;
+                                   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                   owl:onClass <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#InformationRealization>
+                                 ] ;
+                 rdfs:comment "Concept used to connect a multi-modal entity with its modality."@en ;
+                 rdfs:label "Descrittore modale"@it ,
+                            "Modal descriptor"@en .
+
+
+###  http://www.semanticweb.org/MM/ontology/2023/1/mm#Modality
+:Modality rdf:type owl:Class ;
+          rdfs:subClassOf [ rdf:type owl:Restriction ;
+                            owl:onProperty :hasPart ;
+                            owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onClass :Modality
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :isPartOf ;
+                            owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onClass :Modality
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :isUsedByModalDescriptor ;
+                            owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onClass :ModalDescriptor
+                          ] ;
+          rdfs:comment "Parent class used to specify a data modality of a resource"@en ;
+          rdfs:label "Modalita'"@it ,
+                     "Modality"@en .
+
+
+###  http://www.semanticweb.org/MM/ontology/2023/1/mm#Multi-ModalEntity
+:Multi-ModalEntity rdf:type owl:Class ;
+                   rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                     owl:onProperty :hasModalDescriptor ;
+                                     owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                     owl:onClass :ModalDescriptor
+                                   ] ;
+                   rdfs:comment "Root class used to specify multi-modal entities that can be associated with one or more modal resources."@en ;
+                   rdfs:label "Entita' Modale"@it ,
+                              "Modal Entity"@en .
+
+
+###  http://www.semanticweb.org/MM/ontology/2023/1/mm#TextModality
+:TextModality rdf:type owl:Class ;
+              rdfs:subClassOf :Modality ;
+              rdfs:comment "Concept denoting Text modality."@en ;
+              rdfs:label "Modalità testo"@it ,
+                         "Text modality"@en .
+
+
+###  http://www.semanticweb.org/MM/ontology/2023/1/mm#VideoModality
+:VideoModality rdf:type owl:Class ;
+               rdfs:subClassOf :Modality ;
+               rdfs:comment "Concept denoting Video modality."@en ;
+               rdfs:label "Modalità video"@it ,
+                          "Video modality"@en .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :AudioModality
+                :DataStreamModality
+                :ImageModality
+                :TextModality
+                :VideoModality
+              )
+] .
+
+
+###  Generated by the OWL API (version 4.5.25.2023-02-15T19:15:49Z) https://github.com/owlcs/owlapi
