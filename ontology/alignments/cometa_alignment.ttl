@@ -1,0 +1,576 @@
+@prefix : <https://w3id.org/polifonia/ontology/cometa/> .
+@prefix cc: <http://creativecommons.org/ns#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix l0: <https://w3id.org/italia/onto/l0/> .
+@prefix mm: <https://w3id.org/polifonia/ontology/music-meta/> .
+@prefix mx: <https://w3id.org/polifonia/ontology/music-algorithm/> .
+@prefix ns: <http://www.w3.org/2006/vcard/ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix core: <https://w3id.org/polifonia/ontology/core/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix opla: <http://www.ontologydesignpatterns.org/opla/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix opla1: <http://ontologydesignpatterns.org/opla/> .
+@prefix terms: <http://purl.org/dc/terms/> .
+@base <https://w3id.org/polifonia/ontology/cometa/> .
+
+<https://w3id.org/polifonia/ontology/cometa/> rdf:type owl:Ontology ;
+                                               owl:versionIRI <https://w3id.org/polifonia/ontology/cometa/1.0/> ;
+                                               owl:imports <http://www.semanticweb.org/MM/ontology/2023/1/mm> ,
+                                                           <https://w3id.org/polifonia/ontology/music-meta/1.0/> ;
+                                               cc:license <https://creativecommons.org/licenses/by-sa/4.0/> ;
+                                               dc:creator "Andrea Poltronieri"@en ,
+                                                          "Jacopo de Berardinis"@en ,
+                                                          "Nicolas Lazzari"@en ;
+                                               dc:description "An extension of Music Meta to describe the metadata of music collections, corpora, containers, or simply music datasets."@en ;
+                                               dc:license <https://creativecommons.org/licenses/by-sa/4.0/> ;
+                                               dc:title "CoMeta Ontology"@en ;
+                                               terms:issued "\"2023-04-12\"^^xsd:date" ;
+                                               terms:license <https://creativecommons.org/licenses/by-sa/4.0/> ;
+                                               terms:modified "\"2023-05-18\"^^xsd:date" ;
+                                               vann:preferredNamespacePrefix "com:" ;
+                                               vann:preferredNamespaceUri "https://w3id.org/polifonia/ontology/cometa/" ;
+                                               rdfs:comment "An extension of Music Meta to describe the metadata of music collections, corpora, containers, or simply music datasets."@en ;
+                                               rdfs:label "CoMeta Ontology"@en ;
+                                               owl:versionInfo "1.0"@en .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  https://w3id.org/polifonia/ontology/cometa/annotatesData
+:annotatesData rdf:type owl:ObjectProperty ;
+               rdfs:domain :ContentAnnotation ;
+               rdfs:range :ContentDescriptor ,
+                          :RawDataContent ;
+               rdfs:comment "Associates an annotation to the raw data, or data descriptor, it annotates"@en ;
+               rdfs:label "annotates data"@en .
+
+
+###  https://w3id.org/polifonia/ontology/cometa/describesData
+:describesData rdf:type owl:ObjectProperty ;
+               rdfs:domain :ContentDescriptor ;
+               rdfs:range :RawDataContent ;
+               rdfs:comment "Associates a data descriptor (e.g. features, encodings) to the raw data they were derived from"@en ;
+               rdfs:label "describes data"@en .
+
+
+###  https://w3id.org/polifonia/ontology/cometa/extends
+:extends rdf:type owl:ObjectProperty ;
+         rdfs:domain <https://w3id.org/polifonia/ontology/cometa/ontology_URI#Dataset> ;
+         rdfs:range <https://w3id.org/polifonia/ontology/cometa/ontology_URI#Dataset> ;
+         rdfs:label "extends"@en .
+
+
+###  https://w3id.org/polifonia/ontology/cometa/hasAPI
+:hasAPI rdf:type owl:ObjectProperty ;
+        rdfs:domain <https://w3id.org/polifonia/ontology/cometa/ontology_URI#DataAvailability> ;
+        rdfs:range <https://w3id.org/polifonia/ontology/cometa/ontology_URI#API> ;
+        rdfs:comment "Associates an API to the availability information of a dataset"@en ;
+        rdfs:label "has API"@en .
+
+
+###  https://w3id.org/polifonia/ontology/cometa/hasAccessibility
+:hasAccessibility rdf:type owl:ObjectProperty ;
+                  rdfs:domain <https://w3id.org/polifonia/ontology/cometa/ontology_URI#DataAvailability> ;
+                  rdfs:range <https://w3id.org/polifonia/ontology/cometa/ontology_URI#DataAccessibility> ;
+                  rdfs:comment "Associates the availability of a dataset to the way it can be accessed"@en ;
+                  rdfs:label "has accessibility"@en .
+
+
+###  https://w3id.org/polifonia/ontology/cometa/hasAssignment
+:hasAssignment rdf:type owl:ObjectProperty ;
+               rdfs:domain <https://w3id.org/polifonia/ontology/cometa/ontology_URI#DatasetSplit> ;
+               rdfs:range <https://w3id.org/polifonia/ontology/cometa/ontology_URI#DatasetRecord> ;
+               rdfs:comment "Associates a dataset split to a dataset record"@en ;
+               rdfs:label "has assignment"@en ;
+               rdfs:seeAlso <https://w3id.org/polifonia/ontology/cometa/ontology_URI#containsRecord> ;
+               owl:deprecated "Not needed, since a dataset split is still a dataset, hence this can use contains record"@en .
+
+
+###  https://w3id.org/polifonia/ontology/cometa/hasAvailability
+:hasAvailability rdf:type owl:ObjectProperty ;
+                 rdfs:domain <https://w3id.org/polifonia/ontology/cometa/ontology_URI#Dataset> ,
+                             <https://w3id.org/polifonia/ontology/cometa/ontology_URI#DatasetContent> ;
+                 rdfs:range <https://w3id.org/polifonia/ontology/cometa/ontology_URI#DataAvailability> ;
+                 rdfs:comment "Associates a dataset to information related to its availability and access"@en ;
+                 rdfs:label "has availability"@en .
+
+
+###  https://w3id.org/polifonia/ontology/cometa/hasContent
+:hasContent rdf:type owl:ObjectProperty ;
+            rdfs:domain <https://w3id.org/polifonia/ontology/cometa/ontology_URI#Dataset> ;
+            rdfs:range <https://w3id.org/polifonia/ontology/cometa/ontology_URI#DatasetContent> ;
+            rdfs:comment "Associates a dataset to its content"@en ;
+            rdfs:label "has content"@en .
+
+
+###  https://w3id.org/polifonia/ontology/cometa/hasContentType
+:hasContentType rdf:type owl:ObjectProperty ;
+                rdfs:domain :ContentAnnotation ,
+                            :RawDataContent ;
+                rdfs:range :ContentType ;
+                rdfs:comment "Associates raw data content or annotations to their type (e.g. tag, pattern, emotion)."@en ;
+                rdfs:label "has content type"@en .
+
+
+###  https://w3id.org/polifonia/ontology/cometa/hasFeatureType
+:hasFeatureType rdf:type owl:ObjectProperty ;
+                rdfs:domain :ContentDescriptor ;
+                rdfs:range <https://w3id.org/polifonia/ontology/cometa/ontology_URI#FeatureType> ;
+                rdfs:comment "Associates a data descriptor to the type of feature it provides"@en ;
+                rdfs:label "has feature type"@en .
+
+
+###  https://w3id.org/polifonia/ontology/cometa/hasModality
+:hasModality rdf:type owl:ObjectProperty ;
+             rdfs:domain :RawDataContent ;
+             rdfs:range <https://w3id.org/polifonia/ontology/cometa/ontology_URI#DataModality> ;
+             rdfs:comment "Associates raw data content to the modality the data provides"@en ;
+             rdfs:label "has modality"@en .
+
+
+###  https://w3id.org/polifonia/ontology/cometa/hasSplit
+:hasSplit rdf:type owl:ObjectProperty ;
+          rdfs:subPropertyOf :hasSubset ;
+          rdfs:domain <https://w3id.org/polifonia/ontology/cometa/ontology_URI#Dataset> ;
+          rdfs:range <https://w3id.org/polifonia/ontology/cometa/ontology_URI#Dataset> ;
+          rdfs:comment "Associates a dataset to a proper partition (a particular subset) of it"@en ;
+          rdfs:label "has split"@en .
+
+
+###  https://w3id.org/polifonia/ontology/cometa/hasSubset
+:hasSubset rdf:type owl:ObjectProperty ;
+           rdfs:domain <https://w3id.org/polifonia/ontology/cometa/ontology_URI#Dataset> ;
+           rdfs:range <https://w3id.org/polifonia/ontology/cometa/ontology_URI#Dataset> ;
+           rdfs:comment "A dataset can be a subset of another dataset"@en ;
+           rdfs:label "has subset"@en .
+
+
+###  https://w3id.org/polifonia/ontology/cometa/includesContent
+:includesContent rdf:type owl:ObjectProperty ;
+                 rdfs:domain <https://w3id.org/polifonia/ontology/cometa/ontology_URI#DatasetRecord> ;
+                 rdfs:range mm:MusicEntity ,
+                            mm:Recording ,
+                            mm:Release ,
+                            mm:Score ,
+                            mm:Text ;
+                 rdfs:comment "Associates a dataset record to an atomic music element"@en ;
+                 rdfs:label "includes content"@en .
+
+
+###  https://w3id.org/polifonia/ontology/cometa/isAimedFor
+:isAimedFor rdf:type owl:ObjectProperty ;
+            rdfs:domain <https://w3id.org/polifonia/ontology/cometa/ontology_URI#Dataset> ;
+            rdfs:range core:Task ;
+            rdfs:comment "Associates a dataset to a task it enables"@en ;
+            rdfs:label "is aimed for"@en .
+
+
+###  https://w3id.org/polifonia/ontology/cometa/isMaintainedBy
+:isMaintainedBy rdf:type owl:ObjectProperty ;
+                rdfs:domain <https://w3id.org/polifonia/ontology/cometa/ontology_URI#Dataset> ;
+                rdfs:range core:Agent ;
+                rdfs:comment "Associates a dataset to one of its maintainers (e.g. a person, an institution)"@en ;
+                rdfs:label "is maintained by"@en .
+
+
+###  https://w3id.org/polifonia/ontology/cometa/ontology_URI#containsRecord
+<https://w3id.org/polifonia/ontology/cometa/ontology_URI#containsRecord> rdf:type owl:ObjectProperty ;
+                                                                         rdfs:domain <https://w3id.org/polifonia/ontology/cometa/ontology_URI#Dataset> ;
+                                                                         rdfs:range <https://w3id.org/polifonia/ontology/cometa/ontology_URI#DatasetRecord> ;
+                                                                         rdfs:comment "Associates a dataset record to the dataset it belongs to."@en ;
+                                                                         rdfs:label "contains record"@en .
+
+
+###  https://w3id.org/polifonia/ontology/music-meta/hasGenre
+mm:hasGenre rdfs:domain <https://w3id.org/polifonia/ontology/cometa/ontology_URI#Dataset> ;
+            rdfs:range mm:MusicGenre .
+
+
+###  https://w3id.org/polifonia/ontology/music-meta/hasLicense
+mm:hasLicense rdfs:domain <https://w3id.org/polifonia/ontology/cometa/ontology_URI#DataAvailability> .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  https://w3id.org/polifonia/ontology/cometa/acronym
+:acronym rdf:type owl:DatatypeProperty ;
+         rdfs:subPropertyOf core:name ;
+         rdfs:range xsd:string .
+
+
+###  https://w3id.org/polifonia/ontology/cometa/description
+:description rdf:type owl:DatatypeProperty ;
+             rdfs:domain owl:Thing ;
+             rdfs:range xsd:string ;
+             rdfs:comment "A textual description"@en ;
+             rdfs:label "description"@en .
+
+
+###  https://w3id.org/polifonia/ontology/cometa/downloadLink
+:downloadLink rdf:type owl:DatatypeProperty ;
+              rdfs:subPropertyOf owl:topDataProperty ;
+              rdfs:domain <https://w3id.org/polifonia/ontology/cometa/ontology_URI#DataAvailability> ;
+              rdfs:range xsd:anyURI ;
+              rdfs:label "download link"@en .
+
+
+###  https://w3id.org/polifonia/ontology/cometa/recordCount
+:recordCount rdf:type owl:DatatypeProperty ;
+             rdfs:domain <https://w3id.org/polifonia/ontology/cometa/ontology_URI#Dataset> ,
+                         <https://w3id.org/polifonia/ontology/cometa/ontology_URI#DatasetContent> ;
+             rdfs:range xsd:integer ;
+             rdfs:comment "The number of records that are contained in a data container"@en ;
+             rdfs:label "record count" .
+
+
+###  https://w3id.org/polifonia/ontology/cometa/releaseDate
+:releaseDate rdf:type owl:DatatypeProperty ;
+             rdfs:domain owl:Thing ;
+             rdfs:range xsd:dateTime ;
+             rdfs:label "release date"@en .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  https://w3id.org/polifonia/ontology/cometa/ContentAnnotation
+:ContentAnnotation rdf:type owl:Class ;
+                   rdfs:subClassOf <https://w3id.org/polifonia/ontology/cometa/ontology_URI#DatasetContent> ;
+                   rdfs:comment "Dataset content providing annotations that were produced or obtained from raw data content, or alternatively, from a data descriptor."@en ;
+                   rdfs:label "Content Annotation"@en .
+
+
+###  https://w3id.org/polifonia/ontology/cometa/ContentDescriptor
+:ContentDescriptor rdf:type owl:Class ;
+                   rdfs:subClassOf <https://w3id.org/polifonia/ontology/cometa/ontology_URI#DatasetContent> ;
+                   rdfs:comment "Dataset content that describes the raw data content via features or encodings extracted from the former. This should not be confused with an annotation, but as a supplementary view of the raw data content of a dataset."@en ;
+                   rdfs:label "Content Descriptor"@en .
+
+
+###  https://w3id.org/polifonia/ontology/cometa/ContentType
+:ContentType rdf:type owl:Class ;
+             rdfs:comment "Describes the type of content that the raw data, or its annotaitons, provide. In the music domain, this may correspond to chord, pattern, emotion, etc."@en ;
+             rdfs:label "Content Type"@en .
+
+
+###  https://w3id.org/polifonia/ontology/cometa/RawDataContent
+:RawDataContent rdf:type owl:Class ;
+                rdfs:subClassOf <https://w3id.org/polifonia/ontology/cometa/ontology_URI#DatasetContent> ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty skos:relatedMatch ;
+                                  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                  owl:onClass <http://www.semanticweb.org/MM/ontology/2023/1/mm#ModalDescriptor>
+                                ] ;
+                rdfs:comment "Dataset content providing raw data of structured (e.g. tabular data) or unstructured (e.g. audio files). For example, a dataset folder containing images can be described as raw data content."@en ;
+                rdfs:label "Raw Data Content"@en .
+
+
+###  https://w3id.org/polifonia/ontology/cometa/ontology_URI#API
+<https://w3id.org/polifonia/ontology/cometa/ontology_URI#API> rdf:type owl:Class ;
+                                                              rdfs:comment "Describes an Application Program Interface (API) for accessing, recreating, or extracting a dataset."@en ;
+                                                              rdfs:label "API"@en ;
+                                                              rdfs:seeAlso <https://schema.org/APIReference> ,
+                                                                           <https://schema.org/WebAPI> .
+
+
+###  https://w3id.org/polifonia/ontology/cometa/ontology_URI#ContentAvailability
+<https://w3id.org/polifonia/ontology/cometa/ontology_URI#ContentAvailability> rdf:type owl:Class ;
+                                                                              rdfs:comment "Describes the availability of data content according to the release strategy and policies of the dataset. For example, a music dataset may provide complete data records (full tracks) or contain audio clips or snippets (excertps) only."@en ;
+                                                                              rdfs:label "Content Availability"@en .
+
+
+###  https://w3id.org/polifonia/ontology/cometa/ontology_URI#DataAccessibility
+<https://w3id.org/polifonia/ontology/cometa/ontology_URI#DataAccessibility> rdf:type owl:Class ;
+                                                                            rdfs:comment "Describes the accessibility of a dataset, instructing users on the modalities put in the place by the maintaners to access its content."@en ;
+                                                                            rdfs:label "Data Accessibility"@en .
+
+
+###  https://w3id.org/polifonia/ontology/cometa/ontology_URI#DataAvailability
+<https://w3id.org/polifonia/ontology/cometa/ontology_URI#DataAvailability> rdf:type owl:Class ;
+                                                                           rdfs:comment "Describes the available of a dataset as a whole, or of a part of its content."@en ;
+                                                                           rdfs:label "Data Availability"@en .
+
+
+###  https://w3id.org/polifonia/ontology/cometa/ontology_URI#DataFormat
+<https://w3id.org/polifonia/ontology/cometa/ontology_URI#DataFormat> rdf:type owl:Class ;
+                                                                     rdfs:comment "The format of the data in which content is provided."@en ;
+                                                                     rdfs:label "Data Format"@en .
+
+
+###  https://w3id.org/polifonia/ontology/cometa/ontology_URI#DataModality
+<https://w3id.org/polifonia/ontology/cometa/ontology_URI#DataModality> rdf:type owl:Class ;
+                                                                       rdfs:comment "Describes the modality of dataset content such as audio, video, image, etc."@en ;
+                                                                       rdfs:label "Data Modality"@en .
+
+
+###  https://w3id.org/polifonia/ontology/cometa/ontology_URI#Dataset
+<https://w3id.org/polifonia/ontology/cometa/ontology_URI#Dataset> rdf:type owl:Class ;
+                                                                  rdfs:subClassOf mm:Collection ;
+                                                                  rdfs:comment "A container of data records with summative properties that allow the contextualisation of its content, availability and licensing."@en ;
+                                                                  rdfs:label "Dataset"@en .
+
+
+###  https://w3id.org/polifonia/ontology/cometa/ontology_URI#DatasetContent
+<https://w3id.org/polifonia/ontology/cometa/ontology_URI#DatasetContent> rdf:type owl:Class ;
+                                                                         rdfs:comment "Describe the content of a dataset from a summative perspective (e.g. the audio content of a music collection, the audio features it provides, etc.) and its production process (provenance)."@en ;
+                                                                         rdfs:label "Dataset Content"@en .
+
+
+###  https://w3id.org/polifonia/ontology/cometa/ontology_URI#DatasetRecord
+<https://w3id.org/polifonia/ontology/cometa/ontology_URI#DatasetRecord> rdf:type owl:Class ;
+                                                                        rdfs:comment "A record of a dataset, providing references to its properties and annotations."@en ;
+                                                                        rdfs:label "Dataset Record"@en .
+
+
+###  https://w3id.org/polifonia/ontology/cometa/ontology_URI#DatasetSplit
+<https://w3id.org/polifonia/ontology/cometa/ontology_URI#DatasetSplit> rdf:type owl:Class ;
+                                                                       rdfs:subClassOf <https://w3id.org/polifonia/ontology/cometa/ontology_URI#Dataset> ;
+                                                                       rdfs:comment "Describes a partition of a dataset via its association with individual data record, which can be used for training, validating, or testing a computational method."@en ;
+                                                                       rdfs:label "Dataset Split"@en .
+
+
+###  https://w3id.org/polifonia/ontology/cometa/ontology_URI#FeatureType
+<https://w3id.org/polifonia/ontology/cometa/ontology_URI#FeatureType> rdf:type owl:Class ;
+                                                                      rdfs:comment "Describes the type of feature provided by a content descriptor."@en ;
+                                                                      rdfs:label "Feature Type"@en .
+
+
+###  https://w3id.org/polifonia/ontology/cometa/ontology_URI#ProductionMethod
+<https://w3id.org/polifonia/ontology/cometa/ontology_URI#ProductionMethod> rdf:type owl:Class ;
+                                                                           rdfs:comment "A production method is an activity that generates one or more artefacts that joinlty characterises data content."@en ;
+                                                                           rdfs:label "Production Method"@en .
+
+
+###  https://w3id.org/polifonia/ontology/cometa/ontology_URI#SplitType
+<https://w3id.org/polifonia/ontology/cometa/ontology_URI#SplitType> rdf:type owl:Class ;
+                                                                    rdfs:comment "The type of a split that associates a function to the corresponding data partitions (e.g. a training set)."@en ;
+                                                                    rdfs:label "Split Type"@en .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  https://w3id.org/polifonia/ontology/cometa/ABC
+:ABC rdf:type owl:NamedIndividual ,
+              <https://w3id.org/polifonia/ontology/cometa/ontology_URI#DataFormat> .
+
+
+###  https://w3id.org/polifonia/ontology/cometa/Audio
+:Audio rdf:type owl:NamedIndividual ,
+                <https://w3id.org/polifonia/ontology/cometa/ontology_URI#DataModality> ;
+       rdfs:comment "Audio as a modality"@en ;
+       rdfs:label "Audio"@en .
+
+
+###  https://w3id.org/polifonia/ontology/cometa/CSV
+:CSV rdf:type owl:NamedIndividual ,
+              <https://w3id.org/polifonia/ontology/cometa/ontology_URI#DataFormat> .
+
+
+###  https://w3id.org/polifonia/ontology/cometa/Chord
+:Chord rdf:type owl:NamedIndividual ,
+                :ContentType ;
+       rdfs:comment "Chords refer to harmonic structures found in music data."@en ;
+       rdfs:label "Chord"@en .
+
+
+###  https://w3id.org/polifonia/ontology/cometa/ChromaFeatures
+:ChromaFeatures rdf:type owl:NamedIndividual ,
+                         <https://w3id.org/polifonia/ontology/cometa/ontology_URI#FeatureType> ;
+                rdfs:comment "Chroma-based features are descriptor of pitched audio signals (e.g. music)."@en ;
+                rdfs:label "Chroma Features"@en .
+
+
+###  https://w3id.org/polifonia/ontology/cometa/Computational
+:Computational rdf:type owl:NamedIndividual ,
+                        <https://w3id.org/polifonia/ontology/cometa/ontology_URI#ProductionMethod> ;
+               rdfs:comment "A production method based on a computational procedure"@en ;
+               rdfs:label "Algorithmic"@en ,
+                          "Computational"@en .
+
+
+###  https://w3id.org/polifonia/ontology/cometa/Crowdsourced
+:Crowdsourced rdf:type owl:NamedIndividual ,
+                       <https://w3id.org/polifonia/ontology/cometa/ontology_URI#ProductionMethod> ;
+              rdfs:comment "A production method collecting data via crowdsourcing"@en ;
+              rdfs:label "Crowdsourced"@en .
+
+
+###  https://w3id.org/polifonia/ontology/cometa/DevelopmentSet
+:DevelopmentSet rdf:type owl:NamedIndividual ,
+                         <https://w3id.org/polifonia/ontology/cometa/ontology_URI#SplitType> ;
+                rdfs:comment "A dataset split including the validation and test sets"@en ;
+                rdfs:label "Development Set"@en .
+
+
+###  https://w3id.org/polifonia/ontology/cometa/Emotion
+:Emotion rdf:type owl:NamedIndividual ,
+                  :ContentType ;
+         rdfs:comment "Emotion can be either perceived or induced from the data"@en ;
+         rdfs:label "Emotion"@en .
+
+
+###  https://w3id.org/polifonia/ontology/cometa/ExpertHuman
+:ExpertHuman rdf:type owl:NamedIndividual ,
+                      <https://w3id.org/polifonia/ontology/cometa/ontology_URI#ProductionMethod> ;
+             rdfs:comment "A production method relying on human analysis"@en ,
+                          "Expert Human"@en .
+
+
+###  https://w3id.org/polifonia/ontology/cometa/FLAC
+:FLAC rdf:type owl:NamedIndividual ,
+               <https://w3id.org/polifonia/ontology/cometa/ontology_URI#DataFormat> .
+
+
+###  https://w3id.org/polifonia/ontology/cometa/FullContent
+:FullContent rdf:type owl:NamedIndividual ,
+                      <https://w3id.org/polifonia/ontology/cometa/ontology_URI#ContentAvailability> ;
+             rdfs:comment "Data is made available in its entirety (e.g. full audio tracks)"@en ;
+             rdfs:label "Full Content"@en .
+
+
+###  https://w3id.org/polifonia/ontology/cometa/Image
+:Image rdf:type owl:NamedIndividual ,
+                <https://w3id.org/polifonia/ontology/cometa/ontology_URI#DataModality> ;
+       rdfs:comment "Image as a modality"@en ;
+       rdfs:label "Image"@en .
+
+
+###  https://w3id.org/polifonia/ontology/cometa/JAMS
+:JAMS rdf:type owl:NamedIndividual ,
+               <https://w3id.org/polifonia/ontology/cometa/ontology_URI#DataFormat> .
+
+
+###  https://w3id.org/polifonia/ontology/cometa/JSON
+:JSON rdf:type owl:NamedIndividual ,
+               <https://w3id.org/polifonia/ontology/cometa/ontology_URI#DataFormat> .
+
+
+###  https://w3id.org/polifonia/ontology/cometa/Kern
+:Kern rdf:type owl:NamedIndividual ,
+               <https://w3id.org/polifonia/ontology/cometa/ontology_URI#DataFormat> .
+
+
+###  https://w3id.org/polifonia/ontology/cometa/MEI
+:MEI rdf:type owl:NamedIndividual ,
+              <https://w3id.org/polifonia/ontology/cometa/ontology_URI#DataFormat> .
+
+
+###  https://w3id.org/polifonia/ontology/cometa/MELSpectogram
+:MELSpectogram rdf:type owl:NamedIndividual ,
+                        <https://w3id.org/polifonia/ontology/cometa/ontology_URI#FeatureType> ;
+               rdfs:comment "A Mel Spectrogram is a descriptor, or feature, of an audio signal."@en ;
+               rdfs:label "Mel Spectogram"@en .
+
+
+###  https://w3id.org/polifonia/ontology/cometa/MFCCFeatures
+:MFCCFeatures rdf:type owl:NamedIndividual ,
+                       <https://w3id.org/polifonia/ontology/cometa/ontology_URI#FeatureType> ;
+              rdfs:comment "MFCC Features"@en ,
+                           "Mel-frequency cepstral coefficients (MFCCs) are an audio features."@en .
+
+
+###  https://w3id.org/polifonia/ontology/cometa/MIDI
+:MIDI rdf:type owl:NamedIndividual ,
+               <https://w3id.org/polifonia/ontology/cometa/ontology_URI#DataFormat> .
+
+
+###  https://w3id.org/polifonia/ontology/cometa/MP3
+:MP3 rdf:type owl:NamedIndividual ,
+              <https://w3id.org/polifonia/ontology/cometa/ontology_URI#DataFormat> .
+
+
+###  https://w3id.org/polifonia/ontology/cometa/MusicXML
+:MusicXML rdf:type owl:NamedIndividual ,
+                   <https://w3id.org/polifonia/ontology/cometa/ontology_URI#DataFormat> .
+
+
+###  https://w3id.org/polifonia/ontology/cometa/OnRequestAccess
+:OnRequestAccess rdf:type owl:NamedIndividual ,
+                          <https://w3id.org/polifonia/ontology/cometa/ontology_URI#DataAccessibility> ;
+                 rdfs:comment "Access to the dataset undergoes a request procedure"@en ;
+                 rdfs:label "On Request Access"@en .
+
+
+###  https://w3id.org/polifonia/ontology/cometa/OpenAccess
+:OpenAccess rdf:type owl:NamedIndividual ,
+                     <https://w3id.org/polifonia/ontology/cometa/ontology_URI#DataAccessibility> ;
+            rdfs:comment "Access to the dataset is open"@en ;
+            rdfs:label "Open Access"@en .
+
+
+###  https://w3id.org/polifonia/ontology/cometa/Pattern
+:Pattern rdf:type owl:NamedIndividual ,
+                  :ContentType ;
+         rdfs:comment "Patterns are usually found in the data to express and formalise regularities."@en ;
+         rdfs:label "Pattern"@en .
+
+
+###  https://w3id.org/polifonia/ontology/cometa/PreviewContent
+:PreviewContent rdf:type owl:NamedIndividual ,
+                         <https://w3id.org/polifonia/ontology/cometa/ontology_URI#ContentAvailability> ;
+                rdfs:comment "Data is made available in partial form (e.g. audio snippets)."@en ;
+                rdfs:label "Preview Content"@en .
+
+
+###  https://w3id.org/polifonia/ontology/cometa/Structure
+:Structure rdf:type owl:NamedIndividual ,
+                    :ContentType ;
+           rdfs:comment "Structural content refers to segments or sub-sequencies found in sequential data. In the context of music, this may correspond to segments related to musical form (e.g. motifs, phrases, sections)."@en ;
+           rdfs:label "Structure"@en .
+
+
+###  https://w3id.org/polifonia/ontology/cometa/TestSet
+:TestSet rdf:type owl:NamedIndividual ,
+                  <https://w3id.org/polifonia/ontology/cometa/ontology_URI#SplitType> ;
+         rdfs:comment "A split including test data"@en ;
+         rdfs:label "Test Set"@en .
+
+
+###  https://w3id.org/polifonia/ontology/cometa/Text
+:Text rdf:type owl:NamedIndividual ,
+               <https://w3id.org/polifonia/ontology/cometa/ontology_URI#DataModality> ;
+      rdfs:comment "Text as a modality"@en ;
+      rdfs:label "Text"@en .
+
+
+###  https://w3id.org/polifonia/ontology/cometa/TrainingSet
+:TrainingSet rdf:type owl:NamedIndividual ,
+                      <https://w3id.org/polifonia/ontology/cometa/ontology_URI#SplitType> ;
+             rdfs:comment "A split including training data"@en ;
+             rdfs:label "Training Set"@en .
+
+
+###  https://w3id.org/polifonia/ontology/cometa/ValidationSet
+:ValidationSet rdf:type owl:NamedIndividual ,
+                        <https://w3id.org/polifonia/ontology/cometa/ontology_URI#SplitType> ;
+               rdfs:comment "A split including validation data"@en ;
+               rdfs:label "Validation Set"@en .
+
+
+###  https://w3id.org/polifonia/ontology/cometa/Video
+:Video rdf:type owl:NamedIndividual ,
+                <https://w3id.org/polifonia/ontology/cometa/ontology_URI#DataModality> ;
+       rdfs:comment "Video as a modality"@en ;
+       rdfs:label "Video"@en .
+
+
+###  https://w3id.org/polifonia/ontology/cometa/WAV
+:WAV rdf:type owl:NamedIndividual ,
+              <https://w3id.org/polifonia/ontology/cometa/ontology_URI#DataFormat> .
+
+
+###  Generated by the OWL API (version 4.5.25.2023-02-15T19:15:49Z) https://github.com/owlcs/owlapi

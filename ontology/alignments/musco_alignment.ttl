@@ -1,0 +1,924 @@
+@prefix : <https://w3id.org/musco#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix DUL: <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix musco: <https://w3id.org/musco#> .
+@prefix terms: <http://purl.org/dc/terms/> .
+@prefix fschema: <https://w3id.org/framester/schema/> .
+@base <https://w3id.org/musco#> .
+
+<https://w3id.org/musco> rdf:type owl:Ontology ;
+                          owl:imports <http://www.semanticweb.org/MM/ontology/2023/1/mm> ;
+                          dc:creator "Delfina Sol Martinez Pandiani, Valentina Presutti." ;
+                          rdfs:comment "This is the ontological module underlying the Multimodal Descriptions of Social Concepts (MUSCO) project, which aims to investigate, model, and experiment with how and why social concepts (such as violence, power, peace, or destruction) are modeled and detected by humans and machines in images. It specifically focuses on the detection of social concepts referring to non-physical objects in (visual) art images. It implements some Ontology Design Patterns such as Descriptions and Situations (DnS) in a modular way. It is furthermore aligned to DUL - Dolce Ultralight foundational Ontology and imports synset and frame evocation classes from the Framester hub." ;
+                          owl:versionInfo "" .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/elements/1.1/creator
+dc:creator rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#associatedWith
+DUL:associatedWith rdf:type owl:ObjectProperty ;
+                   owl:equivalentProperty musco:associatedWith .
+
+
+###  http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#classifies
+DUL:classifies rdf:type owl:ObjectProperty ;
+               owl:equivalentProperty musco:classifies .
+
+
+###  http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#defines
+DUL:defines rdf:type owl:ObjectProperty ;
+            owl:equivalentProperty musco:defines .
+
+
+###  http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasComponent
+DUL:hasComponent rdf:type owl:ObjectProperty ;
+                 owl:equivalentProperty musco:hasComponent .
+
+
+###  http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasPart
+DUL:hasPart rdf:type owl:ObjectProperty ;
+            owl:equivalentProperty musco:hasPart .
+
+
+###  http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasProperPart
+DUL:hasProperPart rdf:type owl:ObjectProperty ;
+                  owl:equivalentProperty musco:hasProperPart .
+
+
+###  http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasRole
+DUL:hasRole rdf:type owl:ObjectProperty ;
+            owl:equivalentProperty musco:hasRole .
+
+
+###  http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasSetting
+DUL:hasSetting rdf:type owl:ObjectProperty ;
+               owl:equivalentProperty musco:hasSetting .
+
+
+###  http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isClassifiedBy
+DUL:isClassifiedBy rdf:type owl:ObjectProperty ;
+                   owl:equivalentProperty musco:isClassifiedBy ;
+                   rdfs:subPropertyOf DUL:associatedWith ;
+                   rdfs:domain musco:Entity ;
+                   rdfs:comment "Equivalent to dul:isClassifiedBy." ;
+                   rdfs:isDefinedBy <https://w3id.org/musco> .
+
+
+###  http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isComponentOf
+DUL:isComponentOf rdf:type owl:ObjectProperty ;
+                  owl:equivalentProperty musco:isComponentOf .
+
+
+###  http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isConceptUsedIn
+DUL:isConceptUsedIn rdf:type owl:ObjectProperty ;
+                    owl:equivalentProperty musco:isConceptUsedIn .
+
+
+###  http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isDefinedIn
+DUL:isDefinedIn rdf:type owl:ObjectProperty ;
+                owl:equivalentProperty musco:isDefinedIn .
+
+
+###  http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isPartOf
+DUL:isPartOf rdf:type owl:ObjectProperty ;
+             owl:equivalentProperty musco:isPartOf .
+
+
+###  http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isPropertPartOf
+DUL:isPropertPartOf rdf:type owl:ObjectProperty ;
+                    owl:equivalentProperty musco:isProperPartOf .
+
+
+###  http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isRealizedBy
+DUL:isRealizedBy rdf:type owl:ObjectProperty ;
+                 owl:equivalentProperty musco:isRealizedBy .
+
+
+###  http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isRoleOf
+DUL:isRoleOf rdf:type owl:ObjectProperty ;
+             owl:equivalentProperty musco:isRoleOf .
+
+
+###  http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isSettingFor
+DUL:isSettingFor rdf:type owl:ObjectProperty ;
+                 owl:equivalentProperty musco:isSettingFor .
+
+
+###  http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#realizes
+DUL:realizes rdf:type owl:ObjectProperty ;
+             owl:equivalentProperty musco:realizes .
+
+
+###  http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#satisfies
+DUL:satisfies rdf:type owl:ObjectProperty ;
+              owl:equivalentProperty musco:satisfies .
+
+
+###  http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#usesConcept
+DUL:usesConcept rdf:type owl:ObjectProperty ;
+                owl:equivalentProperty musco:usesConcept .
+
+
+###  http://www.w3.org/2004/02/skos/core#broader
+skos:broader rdf:type owl:ObjectProperty ;
+             owl:equivalentProperty musco:broader .
+
+
+###  http://www.w3.org/2004/02/skos/core#broaderTransitive
+skos:broaderTransitive rdf:type owl:ObjectProperty ;
+                       owl:equivalentProperty skos:narrowerTransitive ,
+                                              musco:broaderTransitive .
+
+
+###  http://www.w3.org/2004/02/skos/core#inScheme
+skos:inScheme rdf:type owl:ObjectProperty ;
+              owl:equivalentProperty musco:inScheme .
+
+
+###  http://www.w3.org/2004/02/skos/core#narrower
+skos:narrower rdf:type owl:ObjectProperty ;
+              owl:equivalentProperty musco:narrower .
+
+
+###  http://www.w3.org/2004/02/skos/core#narrowerTransitive
+skos:narrowerTransitive rdf:type owl:ObjectProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#semanticRelation
+skos:semanticRelation rdf:type owl:ObjectProperty ;
+                      owl:equivalentProperty musco:semanticRelation .
+
+
+###  https://w3id.org/framester/schema/evokedBy
+fschema:evokedBy rdf:type owl:ObjectProperty ;
+                 owl:equivalentProperty musco:evokedBy .
+
+
+###  https://w3id.org/framester/schema/evokes
+fschema:evokes rdf:type owl:ObjectProperty ;
+               owl:equivalentProperty musco:evokes .
+
+
+###  https://w3id.org/framester/schema/subsumedUnder
+fschema:subsumedUnder rdf:type owl:ObjectProperty ;
+                      owl:equivalentProperty musco:subsumedUnder .
+
+
+###  https://w3id.org/framester/schema/subsumes
+fschema:subsumes rdf:type owl:ObjectProperty ;
+                 owl:equivalentProperty musco:subsumes .
+
+
+###  https://w3id.org/musco#aboutActionType
+musco:aboutActionType rdf:type owl:ObjectProperty ;
+                      rdfs:subPropertyOf musco:associatedWith ;
+                      owl:inverseOf musco:isActionTypeOf .
+
+
+###  https://w3id.org/musco#aboutColor
+musco:aboutColor rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf musco:associatedWith ;
+                 owl:inverseOf musco:isColorOf .
+
+
+###  https://w3id.org/musco#aboutPOType
+musco:aboutPOType rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf musco:associatedWith ;
+                  owl:inverseOf musco:isPOTypeOf .
+
+
+###  https://w3id.org/musco#associatedWith
+musco:associatedWith rdf:type owl:ObjectProperty ;
+                     owl:inverseOf musco:associatedWith ;
+                     rdf:type owl:SymmetricProperty ,
+                              owl:TransitiveProperty ;
+                     rdfs:domain musco:Entity ;
+                     rdfs:range musco:Entity ;
+                     rdfs:comment "Equivalent to dul:associatedWith." ;
+                     rdfs:label "associated with" .
+
+
+###  https://w3id.org/musco#broader
+musco:broader rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf musco:broaderTransitive .
+
+
+###  https://w3id.org/musco#broaderTransitive
+musco:broaderTransitive rdf:type owl:ObjectProperty ;
+                        rdfs:subPropertyOf musco:semanticRelation .
+
+
+###  https://w3id.org/musco#classifies
+musco:classifies rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf musco:associatedWith ;
+                 owl:inverseOf musco:isClassifiedBy ;
+                 rdfs:comment "Equivalent to dul:classifies" ;
+                 rdfs:isDefinedBy <https://w3id.org/musco> .
+
+
+###  https://w3id.org/musco#defines
+musco:defines rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf musco:usesConcept .
+
+
+###  https://w3id.org/musco#evokedBy
+musco:evokedBy rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf musco:associatedWith ;
+               owl:inverseOf musco:evokes ;
+               rdfs:comment "Some ConceptualFrame or WordNet 3.0 synset or SocialConcept is evoked by an Entity." ;
+               rdfs:label "evoked by"@en .
+
+
+###  https://w3id.org/musco#evokes
+musco:evokes rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf musco:associatedWith ;
+             rdfs:comment "Some Entity evokes some ConceptualFrame or WordNet 3.0 synset or SocialConcept." ;
+             rdfs:label "evokes"@en .
+
+
+###  https://w3id.org/musco#evokesConceptualFrame
+musco:evokesConceptualFrame rdf:type owl:ObjectProperty ;
+                            rdfs:subPropertyOf musco:evokes ;
+                            owl:inverseOf musco:isConceptualFrameEvokedBy ;
+                            rdfs:domain musco:InformationObject ;
+                            rdfs:range musco:ConceptualFrame .
+
+
+###  https://w3id.org/musco#evokesMultimodalFrame
+musco:evokesMultimodalFrame rdf:type owl:ObjectProperty ;
+                            rdfs:subPropertyOf musco:evokes ;
+                            owl:inverseOf musco:isMultimodalFrameEvokedBy ;
+                            rdfs:domain musco:InformationObject ;
+                            rdfs:range musco:SCMultimodalFrame .
+
+
+###  https://w3id.org/musco#evokesSocialConcept
+musco:evokesSocialConcept rdf:type owl:ObjectProperty ;
+                          rdfs:subPropertyOf musco:evokes ;
+                          owl:inverseOf musco:isSocialConceptEvokedBy ;
+                          rdfs:domain musco:InformationObject ;
+                          rdfs:range musco:SocialConcept .
+
+
+###  https://w3id.org/musco#evokesWnSynsetFrame
+musco:evokesWnSynsetFrame rdf:type owl:ObjectProperty ;
+                          rdfs:subPropertyOf musco:evokes ;
+                          owl:inverseOf musco:isWnSynsetFrameEvokedBy ;
+                          rdfs:domain musco:Entity ;
+                          rdfs:range musco:WnSynsetFrame .
+
+
+###  https://w3id.org/musco#hasAnnotationSituation
+musco:hasAnnotationSituation rdf:type owl:ObjectProperty ;
+                             rdfs:subPropertyOf musco:hasSetting ;
+                             owl:inverseOf musco:isAnnotationSituationOf ;
+                             rdfs:domain musco:ImageObject ;
+                             rdfs:range musco:ImageAnnotationSituation .
+
+
+###  https://w3id.org/musco#hasComponent
+musco:hasComponent rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf musco:hasProperPart ;
+                   owl:inverseOf musco:isComponentOf ;
+                   rdf:type owl:AsymmetricProperty .
+
+
+###  https://w3id.org/musco#hasPart
+musco:hasPart rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf musco:associatedWith ;
+              owl:inverseOf musco:isPartOf ;
+              rdf:type owl:TransitiveProperty ,
+                       owl:ReflexiveProperty ;
+              rdfs:domain musco:Entity ;
+              rdfs:range musco:Entity ;
+              rdfs:comment "Equivalent to dul:hasPart." ;
+              rdfs:isDefinedBy <https://w3id.org/musco> .
+
+
+###  https://w3id.org/musco#hasProperPart
+musco:hasProperPart rdf:type owl:ObjectProperty ;
+                    rdfs:subPropertyOf musco:hasPart ;
+                    owl:inverseOf musco:isProperPartOf ;
+                    rdf:type owl:TransitiveProperty .
+
+
+###  https://w3id.org/musco#hasRole
+musco:hasRole rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf musco:isClassifiedBy ;
+              owl:inverseOf musco:isRoleOf .
+
+
+###  https://w3id.org/musco#hasSetting
+musco:hasSetting rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf musco:associatedWith ;
+                 rdfs:comment "Equivalent to dul:hasSetting." ;
+                 rdfs:label "has setting" .
+
+
+###  https://w3id.org/musco#hasSubDescription
+musco:hasSubDescription rdf:type owl:ObjectProperty ;
+                        rdfs:subPropertyOf musco:hasComponent ;
+                        owl:inverseOf musco:isSubDescriptionOf ;
+                        rdfs:domain musco:ImageAnnotationDescription ;
+                        rdfs:range musco:ImageAnnotationDescription .
+
+
+###  https://w3id.org/musco#inScheme
+musco:inScheme rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf musco:associatedWith .
+
+
+###  https://w3id.org/musco#isActionTypeOf
+musco:isActionTypeOf rdf:type owl:ObjectProperty ;
+                     rdfs:subPropertyOf musco:associatedWith ;
+                     rdfs:domain musco:ActionType ;
+                     rdfs:range musco:ActionAnnotation .
+
+
+###  https://w3id.org/musco#isAnnotationSituationOf
+musco:isAnnotationSituationOf rdf:type owl:ObjectProperty ;
+                              rdfs:subPropertyOf musco:isSettingFor .
+
+
+###  https://w3id.org/musco#isClassifiedBy
+musco:isClassifiedBy rdf:type owl:ObjectProperty ;
+                     rdfs:subPropertyOf musco:associatedWith ;
+                     rdfs:comment "Equivalent to DUL:isClassifiedBy" .
+
+
+###  https://w3id.org/musco#isColorOf
+musco:isColorOf rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf musco:associatedWith ;
+                rdfs:domain musco:DominantColor ;
+                rdfs:range musco:DominantColorAnnotation .
+
+
+###  https://w3id.org/musco#isComponentOf
+musco:isComponentOf rdf:type owl:ObjectProperty ;
+                    rdfs:subPropertyOf musco:isProperPartOf ;
+                    rdf:type owl:AsymmetricProperty .
+
+
+###  https://w3id.org/musco#isConceptUsedIn
+musco:isConceptUsedIn rdf:type owl:ObjectProperty ;
+                      rdfs:subPropertyOf musco:associatedWith .
+
+
+###  https://w3id.org/musco#isConceptualFrameEvokedBy
+musco:isConceptualFrameEvokedBy rdf:type owl:ObjectProperty ;
+                                rdfs:subPropertyOf musco:evokedBy .
+
+
+###  https://w3id.org/musco#isDefinedIn
+musco:isDefinedIn rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf musco:isConceptUsedIn .
+
+
+###  https://w3id.org/musco#isMultimodalFrameEvokedBy
+musco:isMultimodalFrameEvokedBy rdf:type owl:ObjectProperty ;
+                                rdfs:subPropertyOf musco:evokedBy .
+
+
+###  https://w3id.org/musco#isMultimodalFrameUsedBy
+musco:isMultimodalFrameUsedBy rdf:type owl:ObjectProperty ;
+                              rdfs:subPropertyOf musco:isSatisfiedBy ;
+                              owl:inverseOf musco:usesMultimodalFrame .
+
+
+###  https://w3id.org/musco#isPOTypeOf
+musco:isPOTypeOf rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf musco:associatedWith ;
+                 rdfs:domain musco:POType ;
+                 rdfs:range musco:PhysicalObjectAnnotation .
+
+
+###  https://w3id.org/musco#isPartOf
+musco:isPartOf rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf musco:associatedWith ;
+               rdf:type owl:TransitiveProperty ,
+                        owl:ReflexiveProperty ;
+               rdfs:domain musco:Entity ;
+               rdfs:range musco:Entity ;
+               rdfs:comment "Equivalent to dul:isPartOf." ;
+               rdfs:isDefinedBy <https://w3id.org/musco> .
+
+
+###  https://w3id.org/musco#isProperPartOf
+musco:isProperPartOf rdf:type owl:ObjectProperty ;
+                     rdfs:subPropertyOf musco:isPartOf ;
+                     rdf:type owl:TransitiveProperty .
+
+
+###  https://w3id.org/musco#isRealizedBy
+musco:isRealizedBy rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf musco:associatedWith ;
+                   owl:inverseOf musco:realizes .
+
+
+###  https://w3id.org/musco#isRoleOf
+musco:isRoleOf rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf musco:classifies .
+
+
+###  https://w3id.org/musco#isSatisfiedBy
+musco:isSatisfiedBy rdf:type owl:ObjectProperty ;
+                    rdfs:subPropertyOf musco:associatedWith ;
+                    owl:inverseOf musco:satisfies .
+
+
+###  https://w3id.org/musco#isSettingFor
+musco:isSettingFor rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf musco:associatedWith ;
+                   rdfs:comment "Equivalent to dul:isSettingFor." .
+
+
+###  https://w3id.org/musco#isSocialConceptEvokedBy
+musco:isSocialConceptEvokedBy rdf:type owl:ObjectProperty ;
+                              rdfs:subPropertyOf musco:evokedBy .
+
+
+###  https://w3id.org/musco#isSubDescriptionOf
+musco:isSubDescriptionOf rdf:type owl:ObjectProperty ;
+                         rdfs:subPropertyOf musco:isComponentOf .
+
+
+###  https://w3id.org/musco#isWnSynsetFrameEvokedBy
+musco:isWnSynsetFrameEvokedBy rdf:type owl:ObjectProperty ;
+                              rdfs:subPropertyOf musco:evokedBy .
+
+
+###  https://w3id.org/musco#narrower
+musco:narrower rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf musco:narrowerTransitive .
+
+
+###  https://w3id.org/musco#narrowerTransitive
+musco:narrowerTransitive rdf:type owl:ObjectProperty ;
+                         rdfs:subPropertyOf musco:semanticRelation .
+
+
+###  https://w3id.org/musco#realizes
+musco:realizes rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf musco:associatedWith .
+
+
+###  https://w3id.org/musco#satisfies
+musco:satisfies rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf musco:associatedWith .
+
+
+###  https://w3id.org/musco#semanticRelation
+musco:semanticRelation rdf:type owl:ObjectProperty ;
+                       rdfs:subPropertyOf musco:associatedWith .
+
+
+###  https://w3id.org/musco#subsumedUnder
+musco:subsumedUnder rdf:type owl:ObjectProperty ;
+                    rdfs:subPropertyOf musco:associatedWith ;
+                    owl:inverseOf musco:subsumes ;
+                    rdfs:comment "Some WordNet 3.0 synset is subsumed under a ConceptualFrame." ;
+                    rdfs:label "subsumed under"@en .
+
+
+###  https://w3id.org/musco#subsumes
+musco:subsumes rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf musco:associatedWith ;
+               rdfs:comment "Some ConceptualFrame subsumes some WordNet 3.0 synset." ;
+               rdfs:label "subsumes"@en .
+
+
+###  https://w3id.org/musco#usesConcept
+musco:usesConcept rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf musco:associatedWith .
+
+
+###  https://w3id.org/musco#usesMultimodalFrame
+musco:usesMultimodalFrame rdf:type owl:ObjectProperty ;
+                          rdfs:subPropertyOf musco:satisfies ;
+                          rdfs:domain musco:Situation ;
+                          rdfs:range musco:SCMultimodalFrame .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasDataValue
+DUL:hasDataValue rdf:type owl:DatatypeProperty ;
+                 owl:equivalentProperty musco:hasDataValue .
+
+
+###  http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasRegionDataValue
+DUL:hasRegionDataValue rdf:type owl:DatatypeProperty ;
+                       owl:equivalentProperty musco:hasRegionDataValue .
+
+
+###  http://www.w3.org/2004/02/skos/core#notation
+skos:notation rdf:type owl:DatatypeProperty ;
+              owl:equivalentProperty musco:notation .
+
+
+###  https://w3id.org/musco#hasCoverage
+musco:hasCoverage rdf:type owl:DatatypeProperty ;
+                  rdfs:subPropertyOf musco:hasDataValue ;
+                  rdfs:domain musco:DominantColorAnnotation ;
+                  rdfs:range xsd:decimal .
+
+
+###  https://w3id.org/musco#hasDataValue
+musco:hasDataValue rdf:type owl:DatatypeProperty ;
+                   rdfs:label "has data value" .
+
+
+###  https://w3id.org/musco#hasHeight
+musco:hasHeight rdf:type owl:DatatypeProperty ;
+                rdfs:subPropertyOf musco:hasRegionDataValue ;
+                rdfs:range xsd:decimal ;
+                rdfs:label "has height" .
+
+
+###  https://w3id.org/musco#hasRegionDataValue
+musco:hasRegionDataValue rdf:type owl:DatatypeProperty ;
+                         rdfs:subPropertyOf musco:hasDataValue ;
+                         rdfs:domain musco:Region ;
+                         rdfs:comment "A datatype property that encodes values for a Region, e.g. a float for the Region Height." ;
+                         rdfs:isDefinedBy <https://w3id.org/musco> ;
+                         rdfs:label "has region data value"@en ,
+                                    "regione ha valore"@it .
+
+
+###  https://w3id.org/musco#hasWidth
+musco:hasWidth rdf:type owl:DatatypeProperty ;
+               rdfs:subPropertyOf musco:hasRegionDataValue ;
+               rdfs:range xsd:decimal ;
+               rdfs:label "has width" .
+
+
+###  https://w3id.org/musco#hasXCoordinate
+musco:hasXCoordinate rdf:type owl:DatatypeProperty ;
+                     rdfs:subPropertyOf musco:hasRegionDataValue ;
+                     rdfs:range xsd:decimal ;
+                     rdfs:label "has x coordinate" .
+
+
+###  https://w3id.org/musco#hasYCoordinate
+musco:hasYCoordinate rdf:type owl:DatatypeProperty ;
+                     rdfs:subPropertyOf musco:hasRegionDataValue ;
+                     rdfs:range xsd:decimal ;
+                     rdfs:label "has y coordinate" .
+
+
+###  https://w3id.org/musco#notation
+musco:notation rdf:type owl:DatatypeProperty .
+
+
+###  https://w3id.org/musco#rgbCoordinateBlue
+musco:rgbCoordinateBlue rdf:type owl:DatatypeProperty ;
+                        rdfs:subPropertyOf musco:hasDataValue ;
+                        rdfs:domain musco:RGBCode ;
+                        rdfs:range xsd:nonNegativeInteger .
+
+
+###  https://w3id.org/musco#rgbCoordinateGreen
+musco:rgbCoordinateGreen rdf:type owl:DatatypeProperty ;
+                         rdfs:subPropertyOf musco:hasDataValue ;
+                         rdfs:domain musco:RGBCode ;
+                         rdfs:range xsd:nonNegativeInteger .
+
+
+###  https://w3id.org/musco#rgbCoordinateRed
+musco:rgbCoordinateRed rdf:type owl:DatatypeProperty ;
+                       rdfs:subPropertyOf musco:hasDataValue ;
+                       rdfs:domain musco:RGBCode ;
+                       rdfs:range xsd:nonNegativeInteger .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Concept
+DUL:Concept rdf:type owl:Class ;
+            owl:equivalentClass musco:Concept .
+
+
+###  http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Description
+DUL:Description rdf:type owl:Class ;
+                owl:equivalentClass musco:Description .
+
+
+###  http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Entity
+DUL:Entity rdf:type owl:Class ;
+           owl:equivalentClass musco:Entity .
+
+
+###  http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#InformationEntity
+DUL:InformationEntity rdf:type owl:Class ;
+                      owl:equivalentClass musco:InformationEntity .
+
+
+###  http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#InformationObject
+DUL:InformationObject rdf:type owl:Class ;
+                      owl:equivalentClass musco:InformationObject .
+
+
+###  http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#InformationRealization
+DUL:InformationRealization rdf:type owl:Class ;
+                           owl:equivalentClass musco:InformationRealization .
+
+
+###  http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Object
+DUL:Object rdf:type owl:Class ;
+           owl:equivalentClass musco:Object .
+
+
+###  http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Region
+DUL:Region rdf:type owl:Class ;
+           owl:equivalentClass musco:Region .
+
+
+###  http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Role
+DUL:Role rdf:type owl:Class ;
+         owl:equivalentClass musco:Role .
+
+
+###  http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Situation
+DUL:Situation rdf:type owl:Class ;
+              owl:equivalentClass musco:Situation .
+
+
+###  http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#SocialObject
+DUL:SocialObject rdf:type owl:Class ;
+                 owl:equivalentClass musco:SocialObject .
+
+
+###  http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#SpaceRegion
+DUL:SpaceRegion rdf:type owl:Class ;
+                owl:equivalentClass musco:SpaceRegion .
+
+
+###  http://www.w3.org/2004/02/skos/core#Concept
+skos:Concept rdf:type owl:Class .
+
+
+###  http://www.w3.org/2004/02/skos/core#ConceptScheme
+skos:ConceptScheme rdf:type owl:Class .
+
+
+###  https://w3id.org/framester/schema/ConceptualFrame
+fschema:ConceptualFrame rdf:type owl:Class ;
+                        owl:equivalentClass musco:ConceptualFrame ;
+                        rdfs:subClassOf fschema:Frame .
+
+
+###  https://w3id.org/framester/schema/Frame
+fschema:Frame rdf:type owl:Class .
+
+
+###  https://w3id.org/framester/wn/wn30/schema/Synset
+<https://w3id.org/framester/wn/wn30/schema/Synset> rdf:type owl:Class ;
+                                                   owl:equivalentClass musco:WnSynsetFrame .
+
+
+###  https://w3id.org/musco#ActionAnnotation
+musco:ActionAnnotation rdf:type owl:Class ;
+                       rdfs:subClassOf musco:ImageAnnotation .
+
+
+###  https://w3id.org/musco#ActionRecognitionDescription
+musco:ActionRecognitionDescription rdf:type owl:Class ;
+                                   rdfs:subClassOf musco:ImageAnnotationDescription .
+
+
+###  https://w3id.org/musco#ActionType
+musco:ActionType rdf:type owl:Class ;
+                 rdfs:subClassOf musco:Concept ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty musco:isActionTypeOf ;
+                                   owl:allValuesFrom musco:ActionAnnotation
+                                 ] .
+
+
+###  https://w3id.org/musco#Concept
+musco:Concept rdf:type owl:Class ;
+              rdfs:subClassOf musco:SocialObject ;
+              rdfs:label "Concept" .
+
+
+###  https://w3id.org/musco#ConceptualFrame
+musco:ConceptualFrame rdf:type owl:Class ;
+                      rdfs:subClassOf musco:Object ;
+                      rdfs:label "Conceptual Frame" .
+
+
+###  https://w3id.org/musco#DatasetTaxonomy
+musco:DatasetTaxonomy rdf:type owl:Class ;
+                      rdfs:subClassOf skos:ConceptScheme ,
+                                      musco:SocialObject .
+
+
+###  https://w3id.org/musco#Description
+musco:Description rdf:type owl:Class ;
+                  rdfs:subClassOf musco:Entity .
+
+
+###  https://w3id.org/musco#DominantColor
+musco:DominantColor rdf:type owl:Class ;
+                    rdfs:subClassOf musco:Concept ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty musco:isColorOf ;
+                                      owl:allValuesFrom musco:DominantColorAnnotation
+                                    ] .
+
+
+###  https://w3id.org/musco#DominantColorAnnotation
+musco:DominantColorAnnotation rdf:type owl:Class ;
+                              rdfs:subClassOf musco:ImageAnnotation .
+
+
+###  https://w3id.org/musco#DominantColorDescription
+musco:DominantColorDescription rdf:type owl:Class ;
+                               rdfs:subClassOf musco:ImageAnnotationDescription .
+
+
+###  https://w3id.org/musco#Entity
+musco:Entity rdf:type owl:Class ;
+             rdfs:label "Entity" .
+
+
+###  https://w3id.org/musco#ImageAnnotation
+musco:ImageAnnotation rdf:type owl:Class ;
+                      rdfs:subClassOf musco:Object .
+
+
+###  https://w3id.org/musco#ImageAnnotationDescription
+musco:ImageAnnotationDescription rdf:type owl:Class ;
+                                 rdfs:subClassOf musco:Description .
+
+
+###  https://w3id.org/musco#ImageAnnotationRole
+musco:ImageAnnotationRole rdf:type owl:Class ;
+                          rdfs:subClassOf musco:Role .
+
+
+###  https://w3id.org/musco#ImageAnnotationSituation
+musco:ImageAnnotationSituation rdf:type owl:Class ;
+                               rdfs:subClassOf musco:Situation .
+
+
+###  https://w3id.org/musco#ImageData
+musco:ImageData rdf:type owl:Class ;
+                rdfs:subClassOf <http://www.semanticweb.org/MM/ontology/2023/1/mm#ModalDescriptor> ,
+                                musco:InformationRealization .
+
+
+###  https://w3id.org/musco#ImageObject
+musco:ImageObject rdf:type owl:Class ;
+                  rdfs:subClassOf <http://www.semanticweb.org/MM/ontology/2023/1/mm#Multi-ModalEntity> ,
+                                  musco:InformationObject ;
+                  rdfs:comment "An image is a type of information object which has a location in a box of pixels (a VSImageBox). It may depict DepictedObjects and DepictedRegions, and evoke ConceptualFrames." ;
+                  rdfs:label "Image Object" .
+
+
+###  https://w3id.org/musco#ImageRegion
+musco:ImageRegion rdf:type owl:Class ;
+                  rdfs:subClassOf musco:SpaceRegion ;
+                  rdfs:comment "A piece of a Image data parametrized by some coordinates, measured in pixels." ;
+                  rdfs:label "Image Region" .
+
+
+###  https://w3id.org/musco#InformationEntity
+musco:InformationEntity rdf:type owl:Class ;
+                        rdfs:subClassOf musco:Entity .
+
+
+###  https://w3id.org/musco#InformationObject
+musco:InformationObject rdf:type owl:Class ;
+                        rdfs:subClassOf musco:InformationEntity ;
+                        rdfs:label "Information Object" .
+
+
+###  https://w3id.org/musco#InformationRealization
+musco:InformationRealization rdf:type owl:Class ;
+                             rdfs:subClassOf musco:InformationEntity .
+
+
+###  https://w3id.org/musco#InputRole
+musco:InputRole rdf:type owl:Class ;
+                rdfs:subClassOf musco:Role .
+
+
+###  https://w3id.org/musco#Object
+musco:Object rdf:type owl:Class ;
+             rdfs:subClassOf musco:Entity ;
+             rdfs:label "Object" .
+
+
+###  https://w3id.org/musco#PORecognitionDescription
+musco:PORecognitionDescription rdf:type owl:Class ;
+                               rdfs:subClassOf musco:ImageAnnotationDescription .
+
+
+###  https://w3id.org/musco#POType
+musco:POType rdf:type owl:Class ;
+             rdfs:subClassOf musco:Concept ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty musco:isPOTypeOf ;
+                               owl:allValuesFrom musco:PhysicalObjectAnnotation
+                             ] .
+
+
+###  https://w3id.org/musco#PhysicalObjectAnnotation
+musco:PhysicalObjectAnnotation rdf:type owl:Class ;
+                               rdfs:subClassOf musco:ImageAnnotation ,
+                                               [ rdf:type owl:Restriction ;
+                                                 owl:onProperty musco:aboutPOType ;
+                                                 owl:allValuesFrom musco:POType
+                                               ] .
+
+
+###  https://w3id.org/musco#RGBCode
+musco:RGBCode rdf:type owl:Class ;
+              rdfs:subClassOf musco:Object ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty musco:rgbCoordinateBlue ;
+                                owl:someValuesFrom xsd:decimal
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty musco:rgbCoordinateGreen ;
+                                owl:someValuesFrom xsd:decimal
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty musco:rgbCoordinateRed ;
+                                owl:someValuesFrom xsd:decimal
+                              ] .
+
+
+###  https://w3id.org/musco#Region
+musco:Region rdf:type owl:Class ;
+             rdfs:subClassOf musco:Entity ;
+             rdfs:label "Region" .
+
+
+###  https://w3id.org/musco#Role
+musco:Role rdf:type owl:Class ;
+           rdfs:subClassOf musco:Concept .
+
+
+###  https://w3id.org/musco#SCMultimodalFrame
+musco:SCMultimodalFrame rdf:type owl:Class ;
+                        rdfs:subClassOf musco:Description .
+
+
+###  https://w3id.org/musco#Situation
+musco:Situation rdf:type owl:Class ;
+                rdfs:subClassOf musco:Entity ;
+                rdfs:label "Situation" .
+
+
+###  https://w3id.org/musco#SocialConcept
+musco:SocialConcept rdf:type owl:Class ;
+                    rdfs:subClassOf musco:Concept .
+
+
+###  https://w3id.org/musco#SocialObject
+musco:SocialObject rdf:type owl:Class ;
+                   rdfs:subClassOf musco:Object ;
+                   rdfs:label "Social Object" .
+
+
+###  https://w3id.org/musco#SpaceRegion
+musco:SpaceRegion rdf:type owl:Class ;
+                  rdfs:subClassOf musco:Region ;
+                  rdfs:label "Space Region" .
+
+
+###  https://w3id.org/musco#TaxonomySubject
+musco:TaxonomySubject rdf:type owl:Class ;
+                      rdfs:subClassOf skos:Concept ,
+                                      musco:Concept .
+
+
+###  https://w3id.org/musco#WnSynsetFrame
+musco:WnSynsetFrame rdf:type owl:Class ;
+                    rdfs:subClassOf musco:Object ;
+                    rdfs:label "WN Synset Frame" .
+
+
+###  Generated by the OWL API (version 4.5.25.2023-02-15T19:15:49Z) https://github.com/owlcs/owlapi
