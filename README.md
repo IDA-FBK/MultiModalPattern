@@ -1,3 +1,8 @@
+[![CC BY-SA 4.0][cc-by-sa-shield]][cc-by-sa]
+
+[cc-by-sa]: http://creativecommons.org/licenses/by-sa/4.0/
+[cc-by-sa-shield]: https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg
+
 # A Pattern to Align them All: Integrating Different Modalities to Define Multi-Modal Entities
 This repository contains the conceptual model and the application and alignment files for the multi-modal ontology design pattern described in the paper *"A Pattern to Align them All: Integrating Different Modalities to Define Multi-Modal Entities"*
 
@@ -39,8 +44,8 @@ Personalized Health [[WEBSITE]](https://horus-ai.fbk.eu/fuskg/) [[REPO]](https:/
 - The Ontology for Multimodal Knowledge Graphs for Data Spaces: [[DIAGRAMS]](/diagrams/applications_and_alignments/alignments/MMKG-Dataspaces/) [[ALIGNED ONTOLOGY]](ontology/alignments/dataspaces_alignment.ttl)
 - The Polifonia Ontology Network (PON) - CoMeta: [[REPO]](https://github.com/polifonia-project/cometa-ontology/) [[DIAGRAMS]](/diagrams/applications_and_alignments/alignments/Cometa/) [[ALIGNED ONTOLOGY]](https://github.com/IDA-FBK/MultiModalPattern/blob/general-update-00/ontology/alignments/cometa_alignment.ttl)
 
-### Notes
-Opening alignments files in Protégé will ask to import the [Multi-Modal ODP](https://github.com/IDA-FBK/MultiModalPattern/blob/main/ontology/multi-modal_odp/multi-modal_odp.ttl) file if not found.
+> [!NOTE]
+> Opening alignments files in Protégé will ask to import the [Multi-Modal ODP](https://github.com/IDA-FBK/MultiModalPattern/blob/main/ontology/multi-modal_odp/multi-modal_odp.ttl) file if not found.
 
 [^1]: for further details, refer to Sections 3 and 4 of the paper.
 
@@ -50,3 +55,11 @@ Opening alignments files in Protégé will ask to import the [Multi-Modal ODP](h
 - Tania Bailoni: tbailoni@fbk.eu
 - Jacopo de Berardinis: jacodb@liverpool.ac.uk 
 - Mauro Dragoni: dragoni@fbk.eu
+
+## License
+This work is licensed under a
+[Creative Commons Attribution-ShareAlike 4.0 International License][cc-by-sa].
+
+[![CC BY-SA 4.0][cc-by-sa-image]][cc-by-sa]
+
+[cc-by-sa-image]: https://licensebuttons.net/l/by-sa/4.0/88x31.png
