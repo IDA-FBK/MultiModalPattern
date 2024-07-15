@@ -14,10 +14,10 @@ modalities and adapt to changes in existing ones (**AIM2**). These  two aims[^1]
 the requirements underlying the pattern’s design: **AIM1** identifies the functional requirements that the pattern should satisfy and that we represent in the four competency
 questions (CQs):
 
-- **CQ1:** What are the modalities that interact in the definition of a data resource?
-- **CQ2:** If applicable, which other modalities do a modality subsume?
-- **CQ3:** What are the relation(s) between a resource and the modalities associated with it?
-- **CQ4:** What is the format associated with a resource?
+- CQ1: What are the modalities that interact in the definition of a data resource?
+- CQ2: If applicable, which other modalities do a modality subsume?
+- CQ3: What is(are) the relation(s) between a resource and the modalities associated with it?
+- CQ4: What is the format associated with a resource?
 
 **AIM2** relates to the set of (non-functional) requirements:
 
@@ -29,9 +29,9 @@ supported and the content of the pattern.
 4. The pattern should be domain agnostic, task-independent and easy to use
 5. The pattern should promote modular development and be extensible, therefore allowing users to define new modalities and express relationships between them.
 
-## Multi-Modal ODP ApplicationS
+## Multi-Modal ODP Applications
 - FuS-KG: A Multi-Modal Knowledge Graph Supporting
-Personalized Health [WEBSITE](https://horus-ai.fbk.eu/fuskg/) [REPO](https://github.com/IDA-FBK/FuS-KG) [DIAGRAMS](/diagrams/applications_and_alignments/applications/FuS-KG/)
+Personalized Health [[WEBSITE]](https://horus-ai.fbk.eu/fuskg/) [[REPO]](https://github.com/IDA-FBK/FuS-KG) [[DIAGRAMS]](/diagrams/applications_and_alignments/applications/FuS-KG/)
  
 
 ## Multi-Modal ODP Alignments
