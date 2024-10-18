@@ -1,10 +1,16 @@
+[![Project webpage](https://img.shields.io/badge/project-webpage-blue.svg)](https://ida-fbk.github.io/MultiModalPatternWeb/)
+[![Paper](https://img.shields.io/badge/paper-arxiv.2410.13803-B31B1B.svg)](https://arxiv.org/pdf/2410.13803)
 [![CC BY-SA 4.0][cc-by-sa-shield]][cc-by-sa]
 
 [cc-by-sa]: http://creativecommons.org/licenses/by-sa/4.0/
 [cc-by-sa-shield]: https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg
 
-# A Pattern to Align them All: Integrating Different Modalities to Define Multi-Modal Entities
-This repository contains the conceptual model and the application and alignment files for the multi-modal ontology design pattern described in the paper *"A Pattern to Align them All: Integrating Different Modalities to Define Multi-Modal Entities"*
+
+# A Pattern to Align them All: Integrating Different Modalities to Define Multi-Modal Entities  
+
+This repository contains the conceptual model and the application and alignment files for the multi-modal ontology design pattern described in the paper [*"A Pattern to Align them All: Integrating Different Modalities to Define Multi-Modal Entities"*](https://arxiv.org/pdf/2410.13803).
+
+**Project Webpage:** [**https://ida-fbk.github.io/MultiModalPatternWeb/**](https://ida-fbk.github.io/MultiModalPatternWeb/)
 
 ## Multi-Modal ODP conceptual model
 ![Multi-Modal ODP](./diagrams/multi-modal_pattern/multi-modal_pattern.png)
