@@ -16,7 +16,7 @@ for Unified Representation in Multi-Modal Knowledge Graphs"*.
 ## Multi-Modal ODP conceptual model
 ![Multi-Modal ODP](./diagrams/multi-modal_pattern/multi-modal_pattern.png)
 
-we propose a Multi-Modal Ontology Design
+We propose a Multi-Modal Ontology Design
 Pattern (ODP) that provides a domain-agnostic structural backbone for multi-modal representation by separating (i) a multi-
 modal entity as an information object, (ii) its concrete digital realisations as modal descriptors, and (iii) reusable modality specifications, including support for modality composition.
 The ODP's goal is to represent information entities with their associated modalities, of diverse nature, and the corresponding relationships between them
@@ -52,7 +52,7 @@ Personalized Health [[WEBSITE]](https://horus-ai.fbk.eu/fuskg/) [[REPO]](https:/
 > [!NOTE]
 > Opening alignments files in Protégé will ask to import the [Multi-Modal ODP](https://github.com/IDA-FBK/MultiModalPattern/blob/main/ontology/multi-modal_odp/multi-modal_odp.ttl) file if not found.
 
-[^1]: for further details, refer to Sections 3 and 4 of the paper.
+[^1]: for further details, refer to Sections 4 and 5 of the paper.
 
 ## Authors
 - Gianluca Apriceno: apriceno@fbk.eu
