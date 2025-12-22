@@ -1,0 +1,16 @@
+
+
+    Search Criteria Summary:
+    =========================
+    Exclusion Criteris: ['machine[- ]learning', 'neural[- ]networks?', 'gnns?', 'embeddings?', 'deep[- ]learning', 'transformers?', 'lstm', 'convolution.*', 'knowledge fusion', 'bank', 'features?', 'dialog.*', 'question[- ]answering', 'information retrieval', 'adversarial', 'recommender', 'medical', 'molecular', 'drugs?', 'covid', 'legal', 'computer vision', 'object detector', 'contrastive learning', 'reinforcement learning', 'summarization', 'chatbots?', 'reviews?', 'surveys?', 'tools?']
+    Columns Checked for Exclusion: ['Title', 'Author Keywords', 'Index Keywords']
+
+    Inclusion Criteria: ['knowledge[- ]graphs?', 'ontolog.*', 'multi-?modal|multimodality|modal.*']
+    Columns Checked for Inclusion: ['Title', 'Author Keywords', 'Index Keywords', 'Abstract']
+
+    Total Papers Before Filtering: 571
+    Total Papers After Exclusion Criteria: 166 (-405)
+    Total Papers After Inclusion Criteria: 162 (-4)
+
+    Unique Search Hash: cee43462d54dccea7ca4afecaf95db52
+    
