@@ -6,39 +6,38 @@
 [cc-by-sa-shield]: https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg
 
 
-# A Pattern to Align them All: Integrating Different Modalities to Define Multi-Modal Entities  
+# The Multi-Modal Pattern: Decoupling Modalities for Unified Representation in Multi-Modal Knowledge Graphs
 
-This repository contains the conceptual model and the application and alignment files for the multi-modal ontology design pattern described in the paper [*"A Pattern to Align them All: Integrating Different Modalities to Define Multi-Modal Entities"*](https://arxiv.org/pdf/2410.13803).
+This repository contains the conceptual model and the application and alignment files for the multi-modal ontology design pattern described in the paper *"The Multi-Modal Pattern: Decoupling Modalities
+for Unified Representation in Multi-Modal Knowledge Graphs"*.
 
 **Project Webpage:** [**https://ida-fbk.github.io/MultiModalPatternWeb/**](https://ida-fbk.github.io/MultiModalPatternWeb/)
 
 ## Multi-Modal ODP conceptual model
 ![Multi-Modal ODP](./diagrams/multi-modal_pattern/multi-modal_pattern.png)
 
-We propose a novel ontology design pattern (ODP) that captures the separation of concerns
-between an entity (and the information it conveys), whose semantics can have
-different manifestations across different media, and its realisation in terms of a
-physical information entity.
+we propose a Multi-Modal Ontology Design
+Pattern (ODP) that provides a domain-agnostic structural backbone for multi-modal representation by separating (i) a multi-
+modal entity as an information object, (ii) its concrete digital realisations as modal descriptors, and (iii) reusable modality specifications, including support for modality composition.
 The ODP's goal is to represent information entities with their associated modalities, of diverse nature, and the corresponding relationships between them
 (**AIM1**) while providing flexibility and extensibility to seamlessly incorporate new
 modalities and adapt to changes in existing ones (**AIM2**). These  two aims[^1] determine
 the requirements underlying the pattern’s design: **AIM1** identifies the functional requirements that the pattern should satisfy and that we represent in the four competency
 questions (CQs):
 
-- CQ1: What are the modalities that interact in the definition of a data resource?
-- CQ2: If applicable, which other modalities do a modality subsume?
-- CQ3: What is(are) the relation(s) between a resource and the modalities associated with it?
-- CQ4: What is the format associated with a resource?
+- CQ1: What are the modalities that contribute to the representation of a data resource?
+- CQ2: Which modalities, if any, subsume or contain other modalities?
+- CQ3: What are the relationships between a resource and its associated
+modalities?
+- CQ4: What is the format or structure associated with a given resource?
 
 **AIM2** relates to the set of (non-functional) requirements:
 
-1. The pattern should support the integration of different modalities that model holistically the same entity.
-2. The pattern should promote semantic agreement on the definition of modality.
-3. The pattern should represent modalities at the highest level of abstraction, therefore
-ensuring a separation of concerns between the specific downstream applications.
-supported and the content of the pattern.
-4. The pattern should be domain agnostic, task-independent and easy to use.
-5. The pattern should promote modular development and be extensible, therefore allowing users to define new modalities and express relationships between them.
+1. The pattern should enable the integration of heterogeneous modalities that collectively describe the same real-world entities.
+2. The pattern should establish a clear and consistent ontological commitment to the concept of modality
+3. The pattern should maintain abstraction at a level that ensures domain and task independence.
+4. The pattern should facilitate usability and extensibility, allowing practitioners to incorporate novel modalities and define inter-modality relationships.
+5. The pattern should support modularity to accommodate evolving modelling needs and promote interoperability.
 
 ## Multi-Modal ODP Applications
 - FuS-KG: A Multi-Modal Knowledge Graph Supporting
